@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+
+
+	{% block content %}
+	<div class="span6 centro offset3">
+		<form action="{% url 'ProjectsManagement:new_project_view' %}" method="POST">
+		<br>
+			{% csrf_token %}
+			<label for="">Type your Project's Name!</label>
+			<input name ="name" type="text">
+			<br>
+			<br>
+			<label for="">When it starts?!</label>
+			<input name ="begin" type="date">
+			<br>
+			<br>
+			<section class= "offset 1">	
+				<input type="submit" class="btn btn-inverse" >
+			</section>	
+		</form>
+		<br>
+		<br>
+		<form action="/projects/allprojects">
+			<input type="submit" class="btn btn-success" value="Back to Projects">
+		</form>
+	</div>
+	{% endblock %}	

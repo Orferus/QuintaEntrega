@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row-fluid span12">
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                <th class="span5">Name</th>
+                <th class="span5">Start Date</th>
+                <th class="span5">Completed</th>
+                <th class="span5">Active</th>
+                <th class="span5">This is a Task of...</th>
+                </tr>
+                {% for t in array_task %}
+                    <tr>    
+                    <td class="span5"><a href="{% url 'ProjectsManagement:alltask'%}">{{t.name}}</a></td>
+                    <td class="span5">{{t.begin}}</td>
+                    <td class="span5">{{t.end}}</td>
+                    <td class="span5">{{t.active}}</td> 
+                    <td class="span5">{{t.project}}</td>  
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+ 
+{% endblock %}

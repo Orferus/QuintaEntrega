@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="span6 centro offset3">
+	<form action="{% url 'ProjectsManagement:new_task_view' %}" method="POST">
+		<br>
+			{% csrf_token %}
+						<label for="">Type your Task's Name!</label>
+						<input name ="name" type="text">
+						<br>
+						<br>
+						<label for="">When it starts?!</label>
+						<input name ="begin" type="date">
+						<br>
+						<br>
+						<label for="">Tell me something about it</label>
+						<input name ="description" type="textfield">
+						<br>
+						<br>
+						<label for="">it belong to any project?</label>
+						<select name="Projects">
+							{% for p in array_Project %}
+   							<option>{{p.name}}</option>
+   							{% endfor %}
+						</select>
+					<section class= "offset 1">	
+						<input type="submit" class="btn btn-inverse" >
+					</section>	
+	</form>
+		<br>
+		<br>
+	<form action="/projects/tasks">
+		<input type="submit" class="btn btn-success" value="Back to Tasks">
+	</form>
+</div>	
+{% endblock %}	

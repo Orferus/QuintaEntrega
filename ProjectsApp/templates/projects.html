@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+   
+    {% block content %}
+        <div class="row-fluid span12">
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                <th class="span5">Name</th>
+                <th class="span5">Start Date</th>
+                <th class="span5">Completed</th>
+                <th class="span5">Active</th>
+                <th class="span5">Project's Tasks</th>
+                </tr>
+                {% for project in array_Project %}
+                    <tr>    
+                    <td class="span5"><a href="{% url 'ProjectsManagement:allprojects'%}">{{project.name}}</a></td>
+                    <td class="span5">{{project.begin}}</td>
+                    <td class="span5">{{project.end}}</td>
+                    <td class="span5">{{project.active}}</td>  
+                    <td class="span5"><a href="#">Let's see</a></td>  
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock %} 
